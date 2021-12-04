@@ -28,7 +28,7 @@
     <footer class="footer">
       <div class="text-center p-3" style="background-color: #383c44;">
         <a class="text-light">Jack Estes and Michael Hawks  |</a>
-        <a class="text-light" href="https://github.com/M-Hawks/movies-vue-cli.git" target="_blank">Github Repository</a>
+        <a class="text-light" href="https://github.com/M-Hawks/creative-project-4.git" target="_blank">Github Repository</a>
       </div>
     </footer>
 

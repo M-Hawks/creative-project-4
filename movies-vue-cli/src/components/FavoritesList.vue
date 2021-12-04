@@ -8,6 +8,10 @@
             <a class="movie-title">{{movie.title}}</a>
             <p>{{movie.overview}}</p>
             <button v-on:click="deleteItem(movie)">Delete</button>
+            <form v-on:submit.prevent="changeScore(movie)">
+              <input id="movieInput" type="Number" v-model="newScore">
+              <input id="movieSubmit" type="submit" value="Change Score">
+            </form>
           </div>
         </div>
     </div>
@@ -27,7 +31,24 @@ export default {
         console.log(error);
       }
     },
+    async changeScore(item) {
+      try {
+        await axios.put("/api/items/" + item._id, {
+          score: this.newScore,
+        });
+        this.newScore = null;
+        return true;
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
+  },
+  data() {
+    return {
+      newScore: Number,
+
+    }
   },
   props: {
     favoriteMovies: Array

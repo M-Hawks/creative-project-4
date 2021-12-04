@@ -31,7 +31,7 @@ app.post('/api/items', async (req, res) => {
     title: req.body.title,
     overview: req.body.overview,
     poster_path: req.body.poster_path,
-    score: 0
+    score: 10
 
   });
   try {
@@ -64,5 +64,20 @@ app.delete('/api/items/:id', async (req, res) => {
     res.sendStatus(500);
   }
 });
+app.put('/api/items/:id', async (req, res) => {
+  try {
+    let item = await Item.findOne({
+      _id: req.params.id
+    });
+    item.score = req.body.score;
+
+    item.save();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(500);
+  }
+});
+
 
 app.listen(3000, () => console.log('Server listening on port 3000!'));

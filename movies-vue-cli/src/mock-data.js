@@ -45,7 +45,7 @@ let mock = [{
   },
   {
     id: 10,
-    title: "Amalie",
+    title: "Amelie",
     image: 'amelie.jpg'
   },]
 
